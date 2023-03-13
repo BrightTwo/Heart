@@ -10,6 +10,8 @@
 <body>
 <audio id="ad" autoplay="autoplay" loop="loop" preload="auto" src="1.mp3"></audio>
 <canvas id="heart"></canvas>
+<div>
+  <!-- <img src="tap.png" width="300" height="300" /> -->
   <div class="loader font1">
   <span style="left: 30%;">M</span>
   <span class="span2" style="left: 33%;">e</span>
@@ -26,21 +28,32 @@
   <span class="span6" style="left: 66%;">a</span>
   <span class="span7" style="left: 69%;">s</span>
 </div>
+<div id="tap" class="tap">
+<img src="tap.png" width="300" height="300" />
+</div>
  <script src="heart.js" type="text/javascript"></script>
    <script src="snow.js" type="text/javascript"></script>
-<script type="text/javascript">
-    window.onload = function(){
-             setInterval("toggleSound()",100);
-        }
+   <script type="text/javascript">
+	 window.onload = function(){
+				 setInterval("toggleSound()",100);
+			}
 
-    function toggleSound() {
-                var music = document.getElementById("ad");//获取ID  
-                    
-                if (music.paused) { //判读是否播放  
-                    music.paused=false;
-                    music.play(); //没有就播放 
-                }    
+		function toggleSound() {
+					var music = document.getElementById("ad");//获取ID  
+						
+					if (music.paused) { //判读是否播放  
+						music.paused=false;
+						music.play(); //没有就播放 
+					}    
         }
+	//--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+document.addEventListener('touchstart', function () {
+document.getElementById("tap").hidden=true;
+});
+	//--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+document.addEventListener('click', function () {
+document.getElementById("tap").hidden=true;
+});
 </script>
 
 </body>
